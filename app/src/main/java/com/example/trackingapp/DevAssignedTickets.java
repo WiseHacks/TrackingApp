@@ -205,7 +205,7 @@ public class DevAssignedTickets extends AppCompatActivity {
                                     System.out.println("Current time => " + c);
                                     SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                                     String formattedDate = df.format(c);
-                                    db.collection("Tickets").document(getSnapshots().getSnapshot(position).getId().toString())
+                                    db.collection("Tickets").document(getSnapshots().getSnapshot(holder.getAdapterPosition()).getId().toString())
                                             .update("ticketStatusByDev","Solved",
                                                     "ticketPatchByDev",holder.edtPatch.getText().toString(),
                                                     "ticketModified",formattedDate
