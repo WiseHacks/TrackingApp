@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <group>
+
+
+        <item
+            android:id="@+id/dev_nav_account"
+            android:title="My Account"
+
+            />
+
+        <item
+            android:id="@+id/dev_nav_project"
+            android:title="My Projects"
+            />
+        <item
+            android:id="@+id/dev_nav_assignedTickets"
+            android:title="Assigned Tickets" />
+
+<!--        <item-->
+<!--            android:id="@+id/dev_nav_recentTicket"-->
+<!--            android:title="Recent Ticket" />-->
+    </group>
+
+    <group>
+
+        <item
+            android:id="@+id/dev_nav_logOut"
+            android:title="Log Out"
+            />
+
+    </group>
+
+
+</menu>

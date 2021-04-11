@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="40dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp"
+        android:id="@+id/cardView3"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/maindetails"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="delete"
+                        android:id="@+id/btnDeleteTicket"
+
+                        android:background="#BED1FFF9"
+
+                        android:padding="2dp"
+                        android:textColor="#F30000"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Solved"
+                        android:id="@+id/tag1"
+                        android:textSize="16sp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#388E3C"
+                        android:visibility="invisible"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Unsolved"
+                        android:id="@+id/tag2"
+                        android:textSize="16sp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#DD3131"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Discarded"
+                        android:id="@+id/tag3"
+                        android:textSize="16sp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#DD3131"
+                        android:visibility="invisible"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:id="@+id/tag4"
+                        android:textSize="16sp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#DC9E00"
+                        android:visibility="visible"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tag"
+                        android:id="@+id/TAG"
+                        android:textSize="16sp"
+                        android:layout_alignParentEnd="true"
+                        android:textColor="#0B0300"
+                        android:visibility="invisible"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Project :"
+                        android:layout_marginTop="8dp"
+                        android:textSize="16sp"
+                        android:layout_below="@id/tag1"
+
+                        android:id="@+id/TXTKEY"
+                        android:textColor="#303F9F"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Project"
+                        android:textColor="#1976D2"
+                        android:textSize="15sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/guideLinea"
+                        android:id="@+id/txtUTicketProject"
+                        android:layout_alignBaseline="@+id/TXTKEY"
+                        />
+
+                    <TextView
+                        android:id="@+id/TXTNAME"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txtUTicketProject"
+                        android:layout_marginTop="8dp"
+                        android:text="Subject :"
+                        android:textColor="#303F9F"
+                        android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Subject"
+                        android:textColor="#1976D2"
+                        android:textSize="15sp"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@+id/guideLinea"
+                        android:id="@+id/txtUTicketSub"
+                        android:layout_alignBaseline="@+id/TXTNAME"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Developer :  "
+                        android:textSize="16sp"
+                        android:id="@+id/TXTDATE"
+                        android:layout_below="@+id/txtUTicketSub"
+                        android:layout_marginTop="8dp"
+                        android:textColor="#303F9F"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dev"
+                        android:textColor="#1976D2"
+                        android:textSize="15sp"
+                        android:layout_toEndOf="@+id/guideLinea"
+                        android:layout_marginStart="5dp"
+                        android:id="@+id/txtUTicketUser"
+                        android:layout_alignBaseline="@+id/TXTDATE"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_expand"
+                        android:layout_below="@+id/txtUTicketUser"
+                        android:id="@+id/imgexpand"
+                        android:layout_alignParentEnd="true"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_compress"
+                        android:layout_below="@+id/txtUTicketUser"
+                        android:id="@+id/imgcompress"
+                        android:visibility="gone"
+                        android:layout_alignParentEnd="true"
+                        />
+
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/guideLinea"
+                        android:layout_toRightOf="@+id/TXTDATE"
+                        android:layout_marginLeft="5dp"/>
+
+                    <TextView
+                        android:id="@+id/ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/dev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TextView"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/maindetails"
+                    android:padding="10dp"
+                    android:id="@+id/expandedDetails"
+                    android:visibility="gone"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description :"
+                        android:id="@+id/TXTDESC"
+                        android:textSize="16sp"
+                        android:textColor="#303F9F"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Description"
+                        android:textSize="15sp"
+                        android:id="@+id/txtUTicketDesc"
+                        android:layout_below="@+id/TXTDESC"
+                        android:textColor="#1976D2"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Priority :"
+                        android:id="@+id/TXTPRIO"
+                        android:layout_below="@id/txtUTicketDesc"
+                        android:textSize="16sp"
+                        android:layout_marginTop="8dp"
+                        android:textColor="#303F9F"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Priority"
+                        android:textSize="15sp"
+                        android:id="@+id/txtUTicketPr"
+                        android:layout_below="@+id/TXTPRIO"
+                        android:textColor="#1976D2"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date :"
+                        android:id="@+id/TXTTDATE"
+                        android:layout_below="@id/txtUTicketPr"
+                        android:textSize="16sp"
+
+                        android:layout_marginTop="8dp"
+                        android:textColor="#303F9F"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Date"
+                        android:textSize="15sp"
+                        android:id="@+id/txtUTicketDate"
+                        android:layout_below="@+id/TXTTDATE"
+                        android:textColor="#1976D2"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtUTicketDate"
+                        android:text="PatchNote :"
+                        android:id="@+id/tpnote"
+                        android:textSize="16sp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#303F9F"
+                        android:visibility="gone"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tpnote"
+                        android:textSize="15sp"
+                        android:text="Patch"
+                        android:textColor="#388E3C"
+                        android:id="@+id/txtPatchNote"
+                        android:visibility="gone"
+
+                        />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

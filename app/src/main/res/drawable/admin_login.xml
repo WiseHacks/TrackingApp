@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+    <path
+        android:name="light_triangle"
+        android:fillColor="#D39FE3"
+        android:pathData="M 100,30 L 0,100 100,100 z" />
+
+
+</vector>

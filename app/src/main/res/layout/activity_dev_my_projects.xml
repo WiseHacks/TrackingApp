@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayoutDev"
+    tools:context=".DevMyProjects"
+    android:background="@drawable/bgf">
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/panda"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/projecterror"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_above="@+id/R"
+                    >
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rcViewDevProject"
+                        />
+
+
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/R"
+                    >
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/add"
+                        android:layout_centerHorizontal="true"
+                        android:backgroundTint="#EF8F8F"
+                        android:layout_margin="5dp"
+                        app:maxImageSize="56dp"
+                        android:id="@+id/btnAddProject"
+                        app:rippleColor="#FBC02D"
+                        app:fabCustomSize="60dp"
+                        />
+
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/devNavigation"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/dev_nav_header"
+        app:itemTextColor="#303F9F"
+        app:itemTextAppearance="@font/baloo_bhai"
+        app:menu="@menu/dev_navigation_menu"
+        android:fitsSystemWindows="true"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

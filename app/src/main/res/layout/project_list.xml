@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="40dp"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp"
+        android:id="@+id/cardView"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgs"
+            android:padding="10dp"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_delete"
+                android:id="@+id/btnDeleteProject"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/imgs"
+
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/maindetails"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Key :"
+                    android:textSize="18sp"
+                    android:id="@+id/TXTKEY"
+                    android:textColor="#303F9F"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Key"
+                    android:textColor="#1976D2"
+                    android:textSize="16sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/guideLinea"
+                    android:id="@+id/txtProjectKey"
+                    android:layout_alignBaseline="@+id/TXTKEY"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name :"
+                    android:textSize="18sp"
+                    android:id="@+id/TXTNAME"
+                    android:layout_below="@id/txtProjectKey"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#303F9F"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="#1976D2"
+                    android:textSize="16sp"
+                    android:layout_marginStart="5dp"
+                    android:layout_toEndOf="@+id/guideLinea"
+                    android:id="@+id/txtProjectName"
+                    android:layout_alignBaseline="@+id/TXTNAME"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Added on :  "
+                    android:textSize="18sp"
+                    android:id="@+id/TXTDATE"
+                    android:layout_below="@+id/txtProjectName"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#303F9F"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textColor="#1976D2"
+                    android:textSize="16sp"
+                    android:layout_toEndOf="@+id/guideLinea"
+                    android:layout_marginStart="5dp"
+                    android:id="@+id/txtProjectDate"
+                    android:layout_alignBaseline="@+id/TXTDATE"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_expand"
+                    android:layout_below="@+id/txtProjectDate"
+                    android:id="@+id/imgexpand"
+                    android:layout_alignParentEnd="true"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_compress"
+                    android:layout_below="@+id/txtProjectDate"
+                    android:id="@+id/imgcompress"
+                    android:visibility="gone"
+                    android:layout_alignParentEnd="true"
+                    />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/guideLinea"
+                    android:layout_toRightOf="@+id/TXTDATE"
+                    android:layout_marginLeft="5dp"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/maindetails"
+                android:padding="10dp"
+                android:id="@+id/expandedDetails"
+                android:visibility="gone"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project Description :"
+                    android:id="@+id/TXTDESC"
+                    android:textSize="18sp"
+                    android:textColor="#303F9F"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textSize="16sp"
+                    android:id="@+id/txtProjectDesc"
+                    android:layout_below="@+id/TXTDESC"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#1976D2"
+                    />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</RelativeLayout>

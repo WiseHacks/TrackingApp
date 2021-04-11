@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayoutDev"
+    tools:context=".DevRecentTicket"
+    android:background="@drawable/bgf">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not Assigned Yet!"
+            android:id="@+id/warning"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textSize="30sp"
+            android:visibility="gone"
+            android:textColor="#FF0000"/>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="40dp"
+            app:cardCornerRadius="8dp"
+            android:layout_margin="5dp"
+            android:id="@+id/cardView2"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/imgs"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/maindetails"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Project :"
+                            android:textSize="16sp"
+                            android:id="@+id/TXTKEY"
+                            android:textColor="#303F9F"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Project"
+                            android:textColor="#1976D2"
+                            android:textSize="15sp"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@+id/guideLinea"
+                            android:id="@+id/txtATicketProject"
+                            android:layout_alignBaseline="@+id/TXTKEY"
+                            />
+
+                        <TextView
+                            android:id="@+id/TXTNAME"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/txtATicketProject"
+                            android:layout_marginTop="8dp"
+                            android:text="Subject :"
+                            android:textColor="#303F9F"
+                            android:textSize="16sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Subject"
+                            android:textColor="#1976D2"
+                            android:textSize="15sp"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@+id/guideLinea"
+                            android:id="@+id/txtATicketSub"
+                            android:layout_alignBaseline="@+id/TXTNAME"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Raised By :  "
+                            android:textSize="16sp"
+                            android:id="@+id/TXTDATE"
+                            android:layout_below="@+id/txtATicketSub"
+                            android:layout_marginTop="8dp"
+                            android:textColor="#303F9F"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="User"
+                            android:textColor="#1976D2"
+                            android:textSize="15sp"
+                            android:layout_toEndOf="@+id/guideLinea"
+                            android:layout_marginStart="5dp"
+                            android:id="@+id/txtATicketUser"
+                            android:layout_alignBaseline="@+id/TXTDATE"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_expand"
+                            android:layout_below="@+id/txtATicketUser"
+                            android:id="@+id/imgexpand"
+                            android:layout_alignParentEnd="true"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_compress"
+                            android:layout_below="@+id/txtATicketUser"
+                            android:id="@+id/imgcompress"
+                            android:visibility="gone"
+                            android:layout_alignParentEnd="true"
+                            />
+
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/guideLinea"
+                            android:layout_toRightOf="@+id/TXTDATE"
+                            android:layout_marginLeft="5dp"/>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/maindetails"
+                        android:padding="10dp"
+                        android:id="@+id/expandedDetails"
+                        android:visibility="gone"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description :"
+                            android:id="@+id/TXTDESC"
+                            android:textSize="16sp"
+                            android:textColor="#303F9F"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Description"
+                            android:textSize="15sp"
+                            android:id="@+id/txtATicketDesc"
+                            android:layout_below="@+id/TXTDESC"
+                            android:textColor="#1976D2"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Priority :"
+                            android:id="@+id/TXTPRIO"
+                            android:layout_below="@id/txtATicketDesc"
+                            android:textSize="16sp"
+                            android:layout_marginTop="8dp"
+                            android:textColor="#303F9F"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Priority"
+                            android:textSize="15sp"
+                            android:id="@+id/txtATicketPr"
+                            android:layout_below="@+id/TXTPRIO"
+                            android:textColor="#1976D2"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date :"
+                            android:id="@+id/TXTTDATE"
+                            android:layout_below="@id/txtATicketPr"
+                            android:textSize="16sp"
+
+                            android:layout_marginTop="8dp"
+                            android:textColor="#303F9F"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date"
+                            android:textSize="15sp"
+                            android:id="@+id/txtATicketDate"
+                            android:layout_below="@+id/TXTTDATE"
+                            android:textColor="#1976D2"
+                            />
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtATicketDate"
+                            android:hint="Patch Note or ChangeLog"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="8dp"
+                            android:id="@+id/edtPatch"
+                            android:inputType="textMultiLine"
+                            android:layout_toLeftOf="@id/btnSolve"
+                            />
+                        <Button
+                            android:id="@+id/btnSolve"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Solve"
+                            android:background="@drawable/buttondesign7"
+                            android:layout_alignParentEnd="true"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/baloo_bhai"
+                            android:layout_below="@id/txtATicketDate"/>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/devNavigation"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/dev_nav_header"
+        app:itemTextColor="#303F9F"
+        app:itemTextAppearance="@font/baloo_bhai"
+        app:menu="@menu/dev_navigation_menu"
+        android:fitsSystemWindows="true"/>
+
+</androidx.drawerlayout.widget.DrawerLayout>

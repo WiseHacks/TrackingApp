@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/mainActivity"
+    android:background="@drawable/bgc"
+>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_weight="4.5"
+            android:src="@drawable/ic_login"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+        <View
+            android:layout_weight="0.5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            />
+
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/welcomeText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:fontFamily="@font/secular_one"-->
+<!--        android:text="Welcome!"-->
+<!--        android:textColor="#FFF"-->
+<!--        android:textSize="40sp" />-->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/welcome"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/welcomeText"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeText"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Button
+            android:id="@+id/btnEnterAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="Admin"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/wendy_one"
+
+            android:textColor="#FFF"
+            />
+
+        <Button
+            android:id="@+id/btnEnterDeveloper"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/wendy_one"
+            android:text="Developer"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+
+            android:textSize="30sp" />
+        <Button
+            android:id="@+id/btnEnterUser"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:text="User"
+            android:textSize="30sp"
+            android:textAllCaps="false"
+            android:background="@drawable/buttonshape"
+            android:fontFamily="@font/wendy_one"
+
+            android:layout_marginTop="30dp"
+            android:textColor="#FFF"
+
+            />
+    </LinearLayout>
+
+</RelativeLayout>

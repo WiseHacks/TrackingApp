@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#fff"
+    tools:context=".UserAuth">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/edtTextUserLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        <Button
+            android:id="@+id/btnUserForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttondesign2"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="Forgot\nPassword"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUserLoginPassword" />
+
+        <TextView
+            android:id="@+id/btnUserRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="1dp"
+            android:text="Don't have an account? Register here"
+            android:textColor="#303F9F"
+            app:layout_goneMarginBottom="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnUserLogin"
+            app:layout_constraintStart_toStartOf="@+id/btnUserForgotPassword"
+            app:layout_constraintTop_toBottomOf="@+id/btnUserForgotPassword" />
+
+        <EditText
+            android:id="@+id/edtTextUserLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="50dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUserLoginEmail" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/userlogin" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#ea7e73"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUserLoginEmail"
+            app:layout_constraintEnd_toEndOf="@+id/edtTextUserLoginEmail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edtTextUserLoginEmail" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="#ea7e73"
+            app:layout_constraintBottom_toTopOf="@+id/edtTextUserLoginPassword"
+            app:layout_constraintEnd_toEndOf="@+id/edtTextUserLoginPassword"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edtTextUserLoginPassword" />
+
+        <Button
+            android:id="@+id/btnUserLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/buttondesign2"
+            android:fontFamily="@font/baloo_bhai"
+            android:text="Login"
+
+            android:textAllCaps="false"
+            android:textColor="#FFf"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@+id/edtTextUserLoginPassword"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUserLoginPassword" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="."
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/edtTextUserLoginPassword"
+            app:layout_constraintStart_toStartOf="@+id/edtTextUserLoginPassword"
+            app:layout_constraintTop_toBottomOf="@+id/edtTextUserLoginPassword" />
+
+        <ProgressBar
+            android:id="@+id/progressBarUser"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
