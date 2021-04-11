@@ -1,6 +1,7 @@
 package com.example.trackingapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -42,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         btnEnterDeveloper = findViewById((R.id.btnEnterDeveloper));
         btnEnterUser = findViewById(R.id.btnEnterUser);
         mainActivity = findViewById(R.id.mainActivity);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
         if(auth.getCurrentUser()==null) {
             btnEnterAdmin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -231,6 +233,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
+
+            case android.R.id.home:
+                this.finish();
+                return true;
+
             case R.id.btnAbout:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("Issue Tracking App -");
