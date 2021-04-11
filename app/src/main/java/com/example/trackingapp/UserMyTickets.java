@@ -185,25 +185,6 @@ public class UserMyTickets extends AppCompatActivity {
                 holder.txtUTicketPr.setText(model.getTicketPriority());
                 holder.txtPatchNote.setText(model.getTicketPatchByDev());
 
-                {
-                //
-//                if(holder.ad.getText() == "NA"){
-//                    holder.pending.setVisibility(View.VISIBLE);
-//                    holder.solved.setVisibility(View.INVISIBLE);
-//                    holder.unsolved.setVisibility(View.INVISIBLE);
-//                    holder.discarded.setVisibility(View.INVISIBLE);
-//                    holder.tpnote.setVisibility(View.GONE);
-//                    holder.txtPatchNote.setVisibility(View.GONE);
-//                }
-//                else if (holder.ad.getText() == "Discarded"){
-//                    holder.pending.setVisibility(View.INVISIBLE);
-//                    holder.solved.setVisibility(View.INVISIBLE);
-//                    holder.unsolved.setVisibility(View.INVISIBLE);
-//                    holder.discarded.setVisibility(View.VISIBLE);
-//                    holder.tpnote.setVisibility(View.GONE);
-//                    holder.txtPatchNote.setVisibility(View.GONE);
-//                }
-                }
 
                 String sAdmin = model.getTicketStatusByAdmin(),sDev=model.getTicketStatusByDev();
 
@@ -265,6 +246,28 @@ public class UserMyTickets extends AppCompatActivity {
                     }
                 });
 
+                holder.imgdelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(UserMyTickets.this);
+                        builder.setMessage("Are you sure you want to delete this?");
+                        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                getSnapshots().getSnapshot(position).getReference().delete();
+                                Toast.makeText(UserMyTickets.this, "Removed successfully", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
+                        builder.create().show();
+                    }
+                });
+
                 holder.imgexpand.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -305,7 +308,7 @@ public class UserMyTickets extends AppCompatActivity {
     static class ProjectViewHolder extends RecyclerView.ViewHolder{
 
         private TextView TAG,btnDeleteTicket,txtUTicketProject, txtUTicketSub, txtUTicketUser, txtUTicketPr, txtUTicketdate, txtUTicketDesc,tpnote,txtPatchNote,solved,unsolved,discarded,pending;
-        private ImageView imgexpand,imgcompress;
+        private ImageView imgexpand,imgcompress,imgdelete;
         private RelativeLayout expandedDetails,imgs;
         private TextView ad,dev;
         private CardView cardView;
@@ -318,6 +321,7 @@ public class UserMyTickets extends AppCompatActivity {
             txtUTicketDesc = itemView.findViewById(R.id.txtUTicketDesc);
             txtUTicketdate = itemView.findViewById(R.id.txtUTicketDate);
             txtUTicketUser = itemView.findViewById(R.id.txtUTicketUser);
+            imgdelete = itemView.findViewById(R.id.imgdelete);
             TAG = itemView.findViewById(R.id.TAG);
             ad = itemView.findViewById(R.id.ad);
             dev = itemView.findViewById(R.id.dev);

@@ -32,17 +32,27 @@
                     android:layout_marginTop="10dp"
                     android:id="@+id/maindetails"
                     >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete"
+                        android:id="@+id/imgdelete"
+
+
+                        />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="delete"
+                        android:text="Delete"
                         android:id="@+id/btnDeleteTicket"
-
+                        android:layout_toEndOf="@+id/imgdelete"
                         android:background="#BED1FFF9"
-
+                        android:textSize="16sp"
                         android:padding="2dp"
+
                         android:textColor="#F30000"
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
