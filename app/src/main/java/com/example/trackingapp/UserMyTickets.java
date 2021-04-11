@@ -233,7 +233,7 @@ public class UserMyTickets extends AppCompatActivity {
                         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                getSnapshots().getSnapshot(position).getReference().delete();
+                                getSnapshots().getSnapshot(holder.getAdapterPosition()).getReference().delete();
                                 Toast.makeText(UserMyTickets.this, "Removed successfully", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -255,7 +255,7 @@ public class UserMyTickets extends AppCompatActivity {
                         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                getSnapshots().getSnapshot(position).getReference().delete();
+                                getSnapshots().getSnapshot(holder.getAdapterPosition()).getReference().delete();
                                 Toast.makeText(UserMyTickets.this, "Removed successfully", Toast.LENGTH_SHORT).show();
                             }
                         });

@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.transition.TransitionManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -148,7 +149,7 @@ public class AdminDashboard extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 db.collection("Tickets").document(getSnapshots()
-                                .getSnapshot(position).getId()).update("ticketStatusByAdmin","Discarded");
+                                .getSnapshot(holder.getAdapterPosition()).getId()).update("ticketStatusByAdmin","Discarded");
                                 Toast.makeText(AdminDashboard.this, "Discarded", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -178,12 +179,12 @@ public class AdminDashboard extends AppCompatActivity {
                                                 System.out.println("Current time => " + c);
                                                 SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
                                                 String formattedDate = df.format(c);
+                                                Log.d("divyesh","notes - "+document.get("developer"));
                                                 db.collection("Tickets").document(getSnapshots()
-                                                        .getSnapshot(position).getId()).update("ticketStatusByAdmin","Assigned",
+                                                        .getSnapshot(holder.getAdapterPosition()).getId()).update("ticketStatusByAdmin","Assigned",
                                                         "assignedToDevId",document.get("developer"),
                                                         "ticketStatusByDev","Unsolved",
                                                         "ticketModified",formattedDate);
-
 //                                                db.collection("Developer").document(document.get("developer").toString())
 //                                                        .update("RecentTicket",getSnapshots().getSnapshot(position).getId().toString());
                                                 Toast.makeText(AdminDashboard.this, "Assigned", Toast.LENGTH_SHORT).show();

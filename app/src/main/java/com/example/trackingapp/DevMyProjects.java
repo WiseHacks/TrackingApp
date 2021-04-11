@@ -5,11 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuItemWrapperICS;
 import androidx.cardview.widget.CardView;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -193,8 +196,8 @@ public class DevMyProjects extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 db.collection("Developer").document(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .update("MyProjects",FieldValue.arrayRemove(getSnapshots().getSnapshot(position).getId()));
-                                db.collection("Tickets").whereEqualTo("ticketProjectId",getSnapshots().getSnapshot(position).getId().toString())
+                                        .update("MyProjects",FieldValue.arrayRemove(getSnapshots().getSnapshot(holder.getAdapterPosition()).getId()));
+                                db.collection("Tickets").whereEqualTo("ticketProjectId",getSnapshots().getSnapshot(holder.getAdapterPosition()).getId().toString())
                                     .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -215,7 +218,11 @@ public class DevMyProjects extends AppCompatActivity {
                                 })
                                 ;
 
-                                getSnapshots().getSnapshot(position).getReference().delete();
+                                getSnapshots().getSnapshot(holder.getAdapterPosition()).getReference().delete();
+
+
+                                adapter.notifyDataSetChanged();
+
                                 Toast.makeText(DevMyProjects.this, "Removed successfully", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -228,6 +235,7 @@ public class DevMyProjects extends AppCompatActivity {
                     }
                 });
             }
+
             @Override
             public void onDataChanged() {
                 // do your thing
@@ -235,10 +243,30 @@ public class DevMyProjects extends AppCompatActivity {
                 else panda.setVisibility(View.GONE);
 
             }
+
+
+
+
         };
 
         rcViewProject.setLayoutManager(new LinearLayoutManager(this));
         rcViewProject.setAdapter(adapter);
+//        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+//            @Override
+//            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+//                return false;
+//            }
+//
+//            @Override
+//            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+//                adapter.deleteItem(viewHolder.getAdapterPosition());
+//            }
+//        }).attachToRecyclerView(rcViewProject);
+
+
+
+
+
 
     }
 
