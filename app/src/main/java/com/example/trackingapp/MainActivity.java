@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         mainActivity = findViewById(R.id.mainActivity);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+
         if(auth.getCurrentUser()==null) {
             btnEnterAdmin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -237,6 +239,10 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true;
+
+//            case R.id.btnUserManage:
+//                startActivity(new Intent(MainActivity.this,UserManage.class));
+//                break;
 
             case R.id.btnAbout:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

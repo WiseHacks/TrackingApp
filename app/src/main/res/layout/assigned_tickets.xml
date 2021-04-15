@@ -204,9 +204,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Solve"
-                        android:background="@drawable/buttondesign7"
+                        android:background="@drawable/buttondesign9"
                         android:layout_alignParentEnd="true"
-                        android:textColor="#fff"
+                        android:textColor="#0800FF"
                         android:fontFamily="@font/baloo_bhai"
                         android:layout_below="@id/txtATicketDate"/>
                 </RelativeLayout>

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_icon_home"
         android:supportsRtl="true"
         android:theme="@style/Theme.TrackingApp">
-        <activity android:name=".WebsiteActivity"></activity>
+        <activity android:name=".UserManagement"></activity>
+        <activity android:name=".UserManage" />
+        <activity android:name=".WebsiteActivity" />
         <activity android:name=".DevAddProject" />
         <activity android:name=".DevMyProjects" />
         <activity android:name=".DevRecentTicket" />
@@ -27,9 +29,6 @@
         <activity android:name=".DeveloperAuth" />
         <activity android:name=".UserRegistration" />
         <activity android:name=".UserAuth" />
-        <activity
-            android:name="com.ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".AdminAuth" />
         <activity android:name=".MainActivity">
             <intent-filter>
