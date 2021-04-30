@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:ems="10"
+
         android:hint="Enter email address of the user"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"

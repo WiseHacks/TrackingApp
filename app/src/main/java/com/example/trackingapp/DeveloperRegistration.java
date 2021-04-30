@@ -91,6 +91,7 @@ public class DeveloperRegistration extends AppCompatActivity {
                                     });
 
 
+                                    // Adding data in firestore, we have map.. string,object.. we put.. name, type and set
                                     Map<String,Object> data = new HashMap<>();
 
                                     data.put("MyProjects", Arrays.asList());

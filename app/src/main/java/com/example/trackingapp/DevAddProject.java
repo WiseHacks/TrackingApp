@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,34 +55,83 @@ public class DevAddProject extends AppCompatActivity {
                     return;
                 }
                 else{
-                    Date c = Calendar.getInstance().getTime();
-                    System.out.println("Current time => " + c);
+                    db.collection("Projects").document(edtTextNewProjectKey.getText().toString()).get().addOnCompleteListener(
+                            new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if(task.isSuccessful()){
+                                        DocumentSnapshot document = task.getResult();
+                                        if(document.exists()){
+                                            edtTextNewProjectKey.setError("This key already exists");
+                                            edtTextNewProjectKey.requestFocus();
+                                            return;
+                                        }
+                                        // adding in database;
+                                        else{
+                                            Date c = Calendar.getInstance().getTime();
+                                            System.out.println("Current time => " + c);
 
-                    SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
-                    String formattedDate = df.format(c);
-                    Map<String,Object> project = new HashMap<>();
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                                            String formattedDate = df.format(c);
+                                            Map<String,Object> project = new HashMap<>();
+                                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                    project.put("name",name);
-                    project.put("description",Desc);
-                    project.put("developer",user.getUid().toString());
-                    project.put("date", formattedDate);
+                                            project.put("name",name);
+                                            project.put("description",Desc);
+                                            project.put("developer",user.getUid().toString());
+                                            project.put("date", formattedDate);
 
-                    db.collection("Projects").document(Key).set(project).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(DevAddProject.this, "Added successfully", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(DevAddProject.this,DevMyProjects.class));
-                                finishAffinity();
-                                DocumentReference documentReference = db.collection("Developer").document(user.getUid().toString());
-                                documentReference.update("MyProjects", FieldValue.arrayUnion(Key));
+                                            db.collection("Projects").document(Key).set(project).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if(task.isSuccessful()){
+                                                        Toast.makeText(DevAddProject.this, "Added successfully", Toast.LENGTH_SHORT).show();
+                                                        startActivity(new Intent(DevAddProject.this,DevMyProjects.class));
+                                                        finishAffinity();
+                                                        DocumentReference documentReference = db.collection("Developer").document(user.getUid().toString());
+                                                        documentReference.update("MyProjects", FieldValue.arrayUnion(Key));
+                                                    }
+                                                    else{
+                                                        Toast.makeText(DevAddProject.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    }
+                                    else{
+                                        Date c = Calendar.getInstance().getTime();
+                                        System.out.println("Current time => " + c);
+
+                                        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
+                                        String formattedDate = df.format(c);
+                                        Map<String,Object> project = new HashMap<>();
+                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                        project.put("name",name);
+                                        project.put("description",Desc);
+                                        project.put("developer",user.getUid().toString());
+                                        project.put("date", formattedDate);
+
+                                        db.collection("Projects").document(Key).set(project).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful()){
+                                                    Toast.makeText(DevAddProject.this, "Added successfully", Toast.LENGTH_SHORT).show();
+                                                    startActivity(new Intent(DevAddProject.this,DevMyProjects.class));
+                                                    finishAffinity();
+                                                    DocumentReference documentReference = db.collection("Developer").document(user.getUid().toString());
+                                                    documentReference.update("MyProjects", FieldValue.arrayUnion(Key));
+                                                }
+                                                else{
+                                                    Toast.makeText(DevAddProject.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
                             }
-                            else{
-                                Toast.makeText(DevAddProject.this, "Something went wrong!", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
+                    );
+
 
 
 
@@ -91,10 +141,6 @@ public class DevAddProject extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
     }
 
     private void initValues() {

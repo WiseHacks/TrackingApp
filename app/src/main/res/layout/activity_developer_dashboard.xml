@@ -19,26 +19,31 @@
             android:layout_height="wrap_content"
             android:text="My Profile"
             android:fontFamily="@font/baloo_bhai"
-            android:textColor="#DD0E0E"
+            android:textColor="#C2185B"
             android:textSize="30sp"
             android:id="@+id/txtProfile"/>
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtProfile"
             android:elevation="20dp"
+            android:layout_below="@id/txtProfile"
             app:cardCornerRadius="20dp">
+
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp"
                 android:gravity="center"
+
                 >
+
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:src="@drawable/devprofile"
                     android:id="@+id/imgdev"
+
                     />
                 <TextView
                     android:layout_width="wrap_content"

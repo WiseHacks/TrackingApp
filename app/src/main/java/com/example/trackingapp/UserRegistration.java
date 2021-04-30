@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class UserRegistration extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class UserRegistration extends AppCompatActivity {
     private Button btnUserRegistration;
     private FirebaseAuth mAuth;
     private ProgressBar progressBarUserRegistration;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,9 +77,27 @@ public class UserRegistration extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
+//                                                MyFirebaseIdService myFirebaseIdService = new MyFirebaseIdService();
+//                                                myFirebaseIdService.onNewToken(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                                                /*FirebaseMessaging.getInstance().subscribeToTopic("mynot")
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if(task.isSuccessful()){
+                                                            Toast.makeText(UserRegistration.this, "Registered Successfully", Toast.LENGTH_LONG).show();
+                                                            startActivity(new Intent(UserRegistration.this,UserDashboard.class));
+                                                            finishAffinity();
+                                                        }
+                                                        else{
+                                                            Toast.makeText(UserRegistration.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });*/
                                                 Toast.makeText(UserRegistration.this, "Registered Successfully", Toast.LENGTH_LONG).show();
                                                 startActivity(new Intent(UserRegistration.this,UserDashboard.class));
                                                 finishAffinity();
+
                                             }
                                             else{
                                                 Toast.makeText(UserRegistration.this, "Failed!", Toast.LENGTH_LONG).show();

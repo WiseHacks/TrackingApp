@@ -54,6 +54,7 @@
                     android:layout_height="wrap_content"
                     android:text="Assign"
                     android:textSize="10sp"
+                    android:textAlignment="center"
                     android:textColor="#389F01"
                     android:id="@+id/abc"
                     android:layout_below="@id/btnAssignTicket"

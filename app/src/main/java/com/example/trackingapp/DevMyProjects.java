@@ -167,6 +167,7 @@ public class DevMyProjects extends AppCompatActivity {
                 holder.imgexpand.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+//                        TransitionManager.beginDelayedTransition(holder.cardView);
                         TransitionManager.beginDelayedTransition(holder.cardView);
                         holder.expandedDetails.setVisibility(View.VISIBLE);
                         holder.imgexpand.setVisibility(View.GONE);
@@ -178,6 +179,7 @@ public class DevMyProjects extends AppCompatActivity {
                 holder.imgcompress.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+//                        TransitionManager.beginDelayedTransition(holder.cardView);
                         TransitionManager.beginDelayedTransition(holder.cardView);
                         holder.expandedDetails.setVisibility(View.GONE);
                         holder.imgexpand.setVisibility(View.VISIBLE);

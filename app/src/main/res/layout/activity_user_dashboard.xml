@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="My Profile"
             android:fontFamily="@font/baloo_bhai"
-            android:textColor="#F57C00"
+            android:textColor="#303F9F"
             android:textSize="30sp"
             android:id="@+id/txtProfile"/>
         <androidx.cardview.widget.CardView

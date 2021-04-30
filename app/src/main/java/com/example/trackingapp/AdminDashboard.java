@@ -31,12 +31,22 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
+
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -148,6 +158,7 @@ public class AdminDashboard extends AppCompatActivity {
                         builder.setPositiveButton("Discard", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+
                                 db.collection("Tickets").document(getSnapshots()
                                 .getSnapshot(holder.getAdapterPosition()).getId()).update("ticketStatusByAdmin","Discarded");
                                 Toast.makeText(AdminDashboard.this, "Discarded", Toast.LENGTH_SHORT).show();
@@ -204,7 +215,9 @@ public class AdminDashboard extends AppCompatActivity {
                         builder.create().show();
                     }
                 });
+
             }
+//
             @Override
             public void onDataChanged() {
                 // do your thing
@@ -221,6 +234,7 @@ public class AdminDashboard extends AppCompatActivity {
 
 
     }
+
 
     private class ProjectViewHolder extends RecyclerView.ViewHolder{
 
