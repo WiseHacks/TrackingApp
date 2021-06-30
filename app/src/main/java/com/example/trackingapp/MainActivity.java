@@ -8,6 +8,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-
         if(auth.getCurrentUser()==null) {
             btnEnterAdmin.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        else {
+       /* else {
             Log.d("firebase" , "checking : "+ auth.getCurrentUser().getUid().toString());
 
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -174,7 +175,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
+        }*/
+
     }
 
 

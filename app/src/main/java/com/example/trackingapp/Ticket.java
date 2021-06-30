@@ -3,14 +3,16 @@ package com.example.trackingapp;
 public class Ticket {
     //
 
-    public String ticketProjectId, raisedByUserId,assignedToDevId,ticketSubject,ticketDesc,ticketPriority,ticketStatusByAdmin,ticketStatusByDev,ticketModified,ticketPatchByDev;
+    public String ticketProjectId, raisedByUserId,assignedToDevId,
+            ticketSubject,ticketDesc,ticketPriority,ticketStatusByAdmin,
+            ticketStatusByDev,ticketModified,ticketPatchByDev, headDev;
 
     // This is Ticket for now.
 
     public Ticket() {
     }
 
-    public Ticket(String ticketProjectId, String raisedByUserId, String assignedToDevId, String ticketSubject, String ticketDesc, String ticketPriority, String ticketStatusByAdmin, String ticketStatusByDev, String ticketModified, String ticketPatchByDev) {
+    public Ticket(String ticketProjectId, String raisedByUserId, String assignedToDevId, String ticketSubject, String ticketDesc, String ticketPriority, String ticketStatusByAdmin, String ticketStatusByDev, String ticketModified, String ticketPatchByDev, String headDev) {
         this.ticketProjectId = ticketProjectId;
         this.raisedByUserId = raisedByUserId;
         this.assignedToDevId = assignedToDevId;
@@ -21,6 +23,15 @@ public class Ticket {
         this.ticketStatusByDev = ticketStatusByDev;
         this.ticketModified = ticketModified;
         this.ticketPatchByDev = ticketPatchByDev;
+        this.headDev = headDev;
+    }
+
+    public String getHeadDev() {
+        return headDev;
+    }
+
+    public void setHeadDev(String headDev) {
+        this.headDev = headDev;
     }
 
     public String getTicketProjectId() {

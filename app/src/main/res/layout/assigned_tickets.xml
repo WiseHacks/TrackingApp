@@ -98,17 +98,41 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@drawable/ic_info"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/imguserinfo"
+                        android:layout_alignBottom="@+id/TXTDATE"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/ic_expand"
                         android:layout_below="@+id/txtATicketUser"
                         android:id="@+id/imgexpand"
+                        android:layout_marginTop="10dp"
                         android:layout_alignParentEnd="true"
                         />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Assign to Team"
+                        android:id="@+id/teamAssign"
+                        android:padding="5dp"
+                        android:background="@drawable/buttondesign10"
+                        android:textAlignment="center"
+                        android:textColor="#0330C8"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/txtATicketUser"
+                        />
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_compress"
                         android:layout_below="@+id/txtATicketUser"
                         android:id="@+id/imgcompress"
+                        android:layout_alignTop="@+id/teamAssign"
+                        android:layout_marginTop="10dp"
                         android:visibility="gone"
                         android:layout_alignParentEnd="true"
                         />
@@ -123,11 +147,26 @@
 
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teamDetails"
+                    android:layout_below="@+id/maindetails"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    >
+                    <ListView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/teamlist"
+                        />
+
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/maindetails"
+                    android:layout_below="@+id/teamDetails"
                     android:padding="10dp"
                     android:id="@+id/expandedDetails"
                     android:visibility="gone"

@@ -93,11 +93,14 @@ public class DeveloperRegistration extends AppCompatActivity {
 
                                     // Adding data in firestore, we have map.. string,object.. we put.. name, type and set
                                     Map<String,Object> data = new HashMap<>();
-
                                     data.put("MyProjects", Arrays.asList());
-
                                     db.collection("Developer").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).set(data);
-
+                                    Map<String,Object> userData = new HashMap<>();
+                                    userData.put("email", dev_email);
+                                    userData.put("name",dev_name);
+                                    userData.put("phone",dev_phone);
+                                    userData.put("role",2);
+                                    db.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).set(userData);
                                 }
                                 else{
                                     Toast.makeText(DeveloperRegistration.this, "Failed!", Toast.LENGTH_LONG).show();

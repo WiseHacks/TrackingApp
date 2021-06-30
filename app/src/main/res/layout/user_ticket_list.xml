@@ -158,6 +158,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Dev"
+                        android:layout_toLeftOf="@+id/imgdevinfo"
                         android:textColor="#1976D2"
                         android:textSize="15sp"
                         android:layout_toEndOf="@+id/guideLinea"
@@ -168,9 +169,18 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:src="@drawable/ic_info"
+                        android:layout_alignBottom="@+id/TXTDATE"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/imgdevinfo"
+                        />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:src="@drawable/ic_expand"
                         android:layout_below="@+id/txtUTicketUser"
                         android:id="@+id/imgexpand"
+                        android:layout_marginTop="10dp"
                         android:layout_alignParentEnd="true"
                         />
                     <ImageView
@@ -180,6 +190,7 @@
                         android:layout_below="@+id/txtUTicketUser"
                         android:id="@+id/imgcompress"
                         android:visibility="gone"
+                        android:layout_marginTop="10dp"
                         android:layout_alignParentEnd="true"
                         />
 

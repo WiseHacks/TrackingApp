@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,8 +25,8 @@
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="300dp"
-                    android:layout_height="300dp"
+                    android:layout_width="230dp"
+                    android:layout_height="230dp"
                     android:src="@drawable/addproject"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
                 <TextView
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
-                    android:textColor="#ff914d"
+                    android:textColor="#DD5D0D"
                     android:layout_height="wrap_content"
                     android:text="Project Name"
                     app:layout_constraintEnd_toEndOf="@+id/edtTextNewProjectName"
@@ -59,7 +59,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Description"
-                    android:textColor="#ff914d"
+                    android:textColor="#DD5D0D"
                     app:layout_constraintBottom_toTopOf="@+id/edtTextNewProjectDesc"
                     app:layout_constraintEnd_toEndOf="@+id/edtTextNewProjectDesc"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -79,25 +79,26 @@
 
                 <Button
                     android:id="@+id/btnNewProject"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="Add"
-                    android:textColor="#fff"
-                    android:fontFamily="@font/baloo_bhai"
-                    android:textSize="25sp"
-                    android:textAllCaps="false"
+                    android:layout_marginTop="20dp"
                     android:background="@drawable/buttondesign6"
+                    android:text="Add"
+                    android:layout_marginBottom="30dp"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="25sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/edtTextNewProjectDesc"
                     app:layout_constraintStart_toStartOf="@+id/edtTextNewProjectDesc"
-                    app:layout_constraintTop_toBottomOf="@+id/edtTextNewProjectDesc" />
+                    app:layout_constraintTop_toBottomOf="@+id/AddTeamLayout" />
 
                 <TextView
                     android:id="@+id/textView16"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Project Key"
-                    android:textColor="#ff914d"
+                    android:textColor="#DD5D0D"
                     app:layout_constraintBottom_toTopOf="@+id/edtTextNewProjectKey"
                     app:layout_constraintEnd_toEndOf="@+id/edtTextNewProjectKey"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -109,11 +110,68 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:layout_marginTop="50dp"
-                    android:inputType="textPersonName"
+                    android:digits="abcdefghijklmnopqrstuvwxyz1234567890"
+                    android:inputType="textFilter"
                     android:hint="Project Key"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edtTextNewProjectName" />
+
+                <TextView
+                    android:id="@+id/AddTeam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Add Team Members"
+                    android:textColor="#0022FF"
+                    android:textSize="18sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="@+id/edtTextNewProjectDesc"
+                    app:layout_constraintStart_toStartOf="@+id/edtTextNewProjectDesc"
+                    app:layout_constraintTop_toBottomOf="@+id/edtTextNewProjectDesc" />
+
+                <RelativeLayout
+                    android:padding="20dp"
+                    android:id="@+id/AddTeamLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/AddTeam"
+                    app:layout_constraintStart_toStartOf="@+id/AddTeam"
+                    app:layout_constraintTop_toBottomOf="@+id/AddTeam">
+
+                    <EditText
+                        android:id="@+id/edtMemberEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Member's Email Address"
+                        android:layout_marginRight="5dp"
+                        android:inputType="textEmailAddress"
+                        android:layout_toLeftOf="@+id/btnAddMember" />
+
+                    <Button
+                        android:id="@+id/btnAddMember"
+                        android:layout_width="75dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#BA0800FF"
+                        android:textSize="15sp"
+                        android:background="@drawable/buttondesign9"
+                        android:text="Add"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"/>
+
+                    <ListView
+                        android:nestedScrollingEnabled="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:id="@+id/MemberList"
+                        android:layout_below="@+id/btnAddMember"
+                        />
+
+
+                </RelativeLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -122,4 +180,4 @@
 
 
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#fff"
     tools:context=".AdminAuth">
 
     <!--     MAke email, pass layout and many for every one, then make login happen, then make project, ticket, assign.. things (Hard project)-->
     <!-- Make login Happen first of all, make class for user and other mfs-->
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -42,17 +42,18 @@
 
         <Button
             android:id="@+id/btnAdminLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:background="@drawable/buttondesign"
-            android:fontFamily="@font/baloo_bhai"
+
             android:text="Login"
-            android:layout_marginBottom="50sp"
+
+            android:layout_marginBottom="50dp"
 
             android:textAllCaps="false"
             android:textColor="#FFF"
-            android:textSize="30sp"
+            android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/edtTextAdminPassword"
             app:layout_constraintStart_toStartOf="@+id/edtTextAdminPassword"
@@ -63,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:textColor="#ea7e73"
+        android:textColor="#DF3827"
         app:layout_constraintBottom_toTopOf="@+id/edtTextAdminEmail"
         app:layout_constraintEnd_toEndOf="@+id/edtTextAdminEmail"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
-        android:textColor="#ea7e73"
+        android:textColor="#DF3827"
         app:layout_constraintBottom_toTopOf="@+id/edtTextAdminPassword"
         app:layout_constraintEnd_toEndOf="@+id/edtTextAdminPassword"
         app:layout_constraintHorizontal_bias="0.0"

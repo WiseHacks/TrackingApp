@@ -13,11 +13,11 @@
         android:bottom="0dp"
         />
     <size
-        android:width="100dp"
-        android:height="50dp"
+        android:width="0dp"
+        android:height="0dp"
         />
     <stroke
-        android:width="3dp"
+        android:width="4dp"
         android:color="#0800FF"
         />
 </shape>

@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/btnAdminLogout"
         android:title="Log out"
         />
+
+
+<!--    <item-->
+<!--        android:icon="@drawable/ic_filter"-->
+<!--        android:id="@+id/menuFilter"-->
+<!--        app:showAsAction="ifRoom|withText"-->
+<!--        android:title="Filter">-->
+<!--        <menu>-->
+<!--            <group>-->
+<!--                <item-->
+<!--                    android:id="@+id/plow"-->
+<!--                    android:title="Priority : Low"-->
+<!--                    android:checkable="true"-->
+
+<!--                    />-->
+<!--                <item-->
+<!--                    android:id="@+id/pmid"-->
+<!--                    android:title="Priority : Medium"-->
+<!--                    android:checkable="true"-->
+
+<!--                    />-->
+<!--                <item-->
+<!--                    android:id="@+id/phigh"-->
+<!--                    android:title="Priority : High"-->
+<!--                    android:checkable="true"-->
+
+<!--                    />-->
+<!--            </group>-->
+<!--        </menu>-->
+<!--    </item>-->
 
 </menu>

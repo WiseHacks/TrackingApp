@@ -156,6 +156,7 @@ public class UserRaiseTicket extends AppCompatActivity implements AdapterView.On
                                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                                             ticket.put("assignedToDevId", "xxxx");
+                                            ticket.put("headDev","xxxx");
                                             ticket.put("raisedByUserId", user.getUid());
                                             ticket.put("ticketDesc", Desc);
                                             ticket.put("ticketModified", formattedDate);

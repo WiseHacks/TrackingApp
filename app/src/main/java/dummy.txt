@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+
+
+/*//                CollectionReference ref = db.collection("Users");
+//                ref.addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+//                        if(error!=null){
+//                            Toast.makeText(DevMyProjects.this, "something went wrong", Toast.LENGTH_SHORT).show();
+//                        }
+//                        else{
+//                            for(QueryDocumentSnapshot documentSnapshot : value){
+//                                if(documentSnapshot.exists()) {
+//                                    String id = documentSnapshot.getId();
+//                                    String val = documentSnapshot.get("name").toString();
+//                                    if (devTeam.contains(id)) {
+//                                        devTeamName.add(val);
+////                                        if(devTeamName.size()==1)holder.ProjectTeamMembers.setAdapter(listAdapter);
+////                                        else listAdapter.notifyDataSetChanged();
+//                                    }
+//                                }
+////                                Log.d("Users","==> " + val);
+//                            }
+//                            listAdapter.notifyDataSetChanged();
+//                            justifyListViewHeightBasedOnChildren(holder.ProjectTeamMembers);
+//                        }
+//                    }
+//                });
+
+//                listAdapter.notifyDataSetChanged();
+//                holder.ProjectTeamMembers.setAdapter(listAdapter);
+//                justifyListViewHeightBasedOnChildren(holder.ProjectTeamMembers);
+//                holder.ProjectTeamMembers.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(DevMyProjects.this);
+//                        builder.setTitle("Developers of " + model.getName());
+//                        for(int i=0;i<devTeam.size();i++){
+//                            int id = i;
+////                            db.collection("Users").document(devTeam.get(i)).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+////                                @Override
+////                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+////                                    if(task.isSuccessful()){
+////                                        DocumentSnapshot document = task.getResult();
+//                                        builder.setMessage(Integer.toString(id +1) + devTeam.get(i));
+////
+////                                    }
+////                                }
+////                            });
+//                        }
+//                        builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        });
+//                        builder.create().show();
+//
+//                    }
+//                });*/

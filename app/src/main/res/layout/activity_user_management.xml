@@ -20,11 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete Permanently"
+        android:text="Delete\nPermanently"
         android:layout_marginTop="30dp"
         android:textAllCaps="false"
         android:textColor="#FF0800FF"

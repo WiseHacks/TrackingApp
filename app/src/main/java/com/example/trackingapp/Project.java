@@ -1,23 +1,24 @@
 package com.example.trackingapp;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Project {
    public String name,description,developer,date;//,id;
+//    public ArrayList<String> team = new ArrayList<>();
+    public Map<String, String> team = new HashMap<>();
+//    public ArrayList<String > teambyname = new ArrayList<>();
 
-//    public Project(String name, String description, String developer, String date, String id) {
-//        this.name = name;
-//        this.description = description;
-//        this.developer = developer;
-//        this.date = date;
-//        this.id = id;
-//    }
-//
-//    public String getId() {
-//        return id;
-//    }
-//
-//    public void setId(String id) {
-//        this.id = id;
-//    }
+
+
+    public Map<String, String> getTeam() {
+        return team;
+    }
+
+    public void setTeam(Map<String, String> team) {
+        this.team = team;
+    }
 
     public String getName() {
         return name;
@@ -51,11 +52,12 @@ public class Project {
         this.date = date;
     }
 
-    public Project(String name, String description, String developer, String date) {
+    public Project(String name, String description, String developer, String date, Map<String, String> team) {
         this.name = name;
         this.description = description;
         this.developer = developer;
         this.date = date;
+        this.team = team;
     }
 
     public Project() {

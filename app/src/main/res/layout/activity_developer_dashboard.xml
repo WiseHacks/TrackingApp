@@ -51,7 +51,7 @@
                     android:text="Name -"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/baloo_bhai"
+                    android:textStyle="bold"
                     android:textSize="20sp"
                     android:textColor="#C2185B"
                     android:id="@+id/txtTicketSub"
@@ -61,7 +61,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="My Name"
-                    android:fontFamily="@font/baloo_bhai"
+
                     android:textSize="16sp"
                     android:textColor="#F57C00"
                     android:id="@+id/txtDevName"
@@ -76,7 +76,7 @@
                     android:id="@+id/txtEmail"
                     android:textSize="20sp"
                     android:textColor="#C2185B"
-                    android:fontFamily="@font/baloo_bhai"
+                    android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:layout_below="@+id/txtDevName"
@@ -84,7 +84,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/baloo_bhai"
+
                     android:text="My Email"
                     android:id="@+id/txtDevEmail"
                     android:textSize="16sp"
@@ -99,7 +99,7 @@
                     android:text="Phone -"
                     android:textSize="20sp"
                     android:textColor="#C2185B"
-                    android:fontFamily="@font/baloo_bhai"
+                    android:textStyle="bold"
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"
                     android:id="@+id/txtPhone"
@@ -113,7 +113,7 @@
                     android:textSize="16sp"
                     android:textColor="#F57C00"
                     android:layout_marginLeft="20dp"
-                    android:fontFamily="@font/baloo_bhai"
+
                     android:layout_toRightOf="@+id/guideline"
                     android:layout_alignBaseline="@+id/txtPhone"
                     />

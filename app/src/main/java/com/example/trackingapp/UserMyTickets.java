@@ -30,8 +30,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -224,6 +226,49 @@ public class UserMyTickets extends AppCompatActivity {
                     }
                 }
 
+                holder.imgdevinfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(UserMyTickets.this);
+
+                        builder.setTitle("Dev Info -");
+                        db.collection("Projects").document(model.getTicketProjectId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if(task.isSuccessful()){
+                                    DocumentSnapshot document = task.getResult();
+                                    if(document.exists()) {
+
+                                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                                        databaseReference.child("Users").child(document.get("developer").toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                User user = snapshot.getValue(User.class);
+                                                if(user!=null){
+                                                    builder.setMessage("Name - " + user.fullname.toString() +
+                                                            "\n\nEmail - " + user.email +
+                                                            "\n\nPhone - " + user.phone
+                                                    );
+                                                    builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                        }
+                                                    });
+                                                    builder.create().show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
                 holder.btnDeleteTicket.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -308,7 +353,7 @@ public class UserMyTickets extends AppCompatActivity {
     static class ProjectViewHolder extends RecyclerView.ViewHolder{
 
         private TextView TAG,btnDeleteTicket,txtUTicketProject, txtUTicketSub, txtUTicketUser, txtUTicketPr, txtUTicketdate, txtUTicketDesc,tpnote,txtPatchNote,solved,unsolved,discarded,pending;
-        private ImageView imgexpand,imgcompress,imgdelete;
+        private ImageView imgexpand,imgcompress,imgdelete,imgdevinfo;
         private RelativeLayout expandedDetails,imgs;
         private TextView ad,dev;
         private CardView cardView;
@@ -334,6 +379,7 @@ public class UserMyTickets extends AppCompatActivity {
             pending = itemView.findViewById(R.id.tag4);
             imgcompress=itemView.findViewById(R.id.imgcompress);
             imgexpand = itemView.findViewById(R.id.imgexpand);
+            imgdevinfo = itemView.findViewById(R.id.imgdevinfo);
             expandedDetails = itemView.findViewById(R.id.expandedDetails);
             cardView = itemView.findViewById(R.id.cardView3);
         }

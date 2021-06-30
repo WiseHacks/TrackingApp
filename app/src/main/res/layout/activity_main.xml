@@ -55,7 +55,7 @@
         android:gravity="center">
         <Button
             android:id="@+id/btnEnterAdmin"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="70dp"
             android:text="Admin"
             android:textSize="30sp"
@@ -68,7 +68,7 @@
 
         <Button
             android:id="@+id/btnEnterDeveloper"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="70dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/buttonshape"
@@ -80,7 +80,7 @@
             android:textSize="30sp" />
         <Button
             android:id="@+id/btnEnterUser"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="70dp"
             android:text="User"
             android:textSize="30sp"

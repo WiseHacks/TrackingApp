@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.transition.TransitionManager;
 import android.util.Log;
@@ -49,8 +50,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -61,6 +65,9 @@ public class AdminDashboard extends AppCompatActivity {
     private RecyclerView rcViewTicket;
     private ImageView noticket;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private Query query = db.collection("Tickets").whereEqualTo("ticketStatusByAdmin","NA");
+//            .whereIn("ticketPriority",Arrays.asList("Low","Medium","High"));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,10 +75,11 @@ public class AdminDashboard extends AppCompatActivity {
 
         rcViewTicket = findViewById(R.id.rcViewTicketAdmin);
         noticket = findViewById(R.id.noticket);
-        Query query = db.collection("Tickets").whereEqualTo("ticketStatusByAdmin","NA");
+
         FirestoreRecyclerOptions<Ticket> options = new FirestoreRecyclerOptions.Builder<Ticket>()
                 .setQuery(query,Ticket.class)
                 .build();
+
 
         adapter = new FirestoreRecyclerAdapter<Ticket, AdminDashboard.ProjectViewHolder>(options) {
             @NonNull
@@ -100,6 +108,7 @@ public class AdminDashboard extends AppCompatActivity {
                                             DataSnapshot snapshot = task.getResult();
                                             if(snapshot.exists()){
                                                 holder.txtTicketDev.setText(String.valueOf(snapshot.getValue()));
+//                                                holder.txtTicketDev.setPaintFlags(holder.txtTicketDev.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                                             }
                                         }
                                     }
@@ -117,6 +126,7 @@ public class AdminDashboard extends AppCompatActivity {
                             DataSnapshot snapshot = task.getResult();
                             if(snapshot.exists()){
                                 holder.txtTicketUser.setText(String.valueOf(snapshot.getValue()));
+//                                holder.txtTicketUser.setPaintFlags(holder.txtTicketUser.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                             }
                         }
                     }
@@ -126,7 +136,83 @@ public class AdminDashboard extends AppCompatActivity {
 
                 holder.txtTicketdate.setText(model.getTicketModified());
                 holder.txtTicketPr.setText(model.getTicketPriority());
+                holder.imgUserInfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(AdminDashboard.this);
 
+                        builder.setTitle("User Info -");
+                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                        databaseReference.child("Users").child(model.getRaisedByUserId()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                User user = snapshot.getValue(User.class);
+                                if(user!=null){
+                                    builder.setMessage("Name - " + user.fullname.toString() +
+                                                        "\n\nEmail - " + user.email +
+                                                    "\n\nPhone - " + user.phone
+                                            );
+                                    builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    builder.create().show();
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                    }
+                });
+
+                holder.imgDevInfo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(AdminDashboard.this);
+
+                        builder.setTitle("Dev Info -");
+                        db.collection("Projects").document(model.getTicketProjectId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if(task.isSuccessful()){
+                                    DocumentSnapshot document = task.getResult();
+                                    if(document.exists()) {
+
+                                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                                        databaseReference.child("Users").child(document.get("developer").toString()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                User user = snapshot.getValue(User.class);
+                                                if(user!=null){
+                                                    builder.setMessage("Name - " + user.fullname.toString() +
+                                                            "\n\nEmail - " + user.email +
+                                                            "\n\nPhone - " + user.phone
+                                                    );
+                                                    builder.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+                                                        @Override
+                                                        public void onClick(DialogInterface dialog, int which) {
+                                                        }
+                                                    });
+                                                    builder.create().show();
+                                                }
+                                            }
+
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
                 holder.imgexpand.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -194,10 +280,11 @@ public class AdminDashboard extends AppCompatActivity {
                                                 db.collection("Tickets").document(getSnapshots()
                                                         .getSnapshot(holder.getAdapterPosition()).getId()).update("ticketStatusByAdmin","Assigned",
                                                         "assignedToDevId",document.get("developer"),
+                                                        "headDev" ,document.get("developer"),
                                                         "ticketStatusByDev","Unsolved",
                                                         "ticketModified",formattedDate);
 //                                                db.collection("Developer").document(document.get("developer").toString())
-//                                                        .update("RecentTicket",getSnapshots().getSnapshot(position).getId().toString());
+//                                                                .update("RecentTicket",getSnapshots().getSnapshot(position).getId().toString());
                                                 Toast.makeText(AdminDashboard.this, "Assigned", Toast.LENGTH_SHORT).show();
 
                                             }
@@ -239,7 +326,7 @@ public class AdminDashboard extends AppCompatActivity {
     private class ProjectViewHolder extends RecyclerView.ViewHolder{
 
         private TextView txtTicketProject,txtTicketSub,txtTicketUser,txtTicketPr,txtTicketdate,txtTicketDesc,txtTicketDev;
-        private ImageView imgexpand,imgcompress;
+        private ImageView imgexpand,imgcompress,imgUserInfo,imgDevInfo;
         private RelativeLayout expandedDetails,imgs;
         private CardView cardView;
         private ImageView btnDiscardTicket,btnAssignTicket;
@@ -258,6 +345,8 @@ public class AdminDashboard extends AppCompatActivity {
             btnAssignTicket = itemView.findViewById(R.id.btnAssignTicket);
             imgcompress=itemView.findViewById(R.id.imgcompress);
             imgexpand = itemView.findViewById(R.id.imgexpand);
+            imgUserInfo = itemView.findViewById(R.id.imgUserInfo);
+            imgDevInfo = itemView.findViewById(R.id.imgDevInfo);
             expandedDetails = itemView.findViewById(R.id.expandedDetails);
             cardView = itemView.findViewById(R.id.cardView1);
             imgs = itemView.findViewById(R.id.imgs);
@@ -292,6 +381,7 @@ public class AdminDashboard extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
+
             case R.id.btnAdminLogout:
                 androidx.appcompat.app.AlertDialog.Builder builder = new AlertDialog.Builder(AdminDashboard.this);
                 builder.setMessage("Log out from the application?");
