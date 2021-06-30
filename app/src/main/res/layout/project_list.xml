@@ -144,7 +144,7 @@
                 android:layout_below="@+id/maindetails"
                 android:padding="10dp"
                 android:id="@+id/expandedDetails"
-                android:visibility="visible"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="wrap_content"
