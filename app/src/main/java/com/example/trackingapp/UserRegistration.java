@@ -18,13 +18,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.messaging.FirebaseMessaging;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserRegistration extends AppCompatActivity {
 
     private EditText edtTextUserRegistrationName,edtTextUserRegistrationEmail,edtTextUserRegistrationPhone,edtTextUserRegistrationPassword;
     private Button btnUserRegistration;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private ProgressBar progressBarUserRegistration;
 
     @Override
@@ -77,23 +82,6 @@ public class UserRegistration extends AppCompatActivity {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-//                                                MyFirebaseIdService myFirebaseIdService = new MyFirebaseIdService();
-//                                                myFirebaseIdService.onNewToken(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
-                                                /*FirebaseMessaging.getInstance().subscribeToTopic("mynot")
-                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if(task.isSuccessful()){
-                                                            Toast.makeText(UserRegistration.this, "Registered Successfully", Toast.LENGTH_LONG).show();
-                                                            startActivity(new Intent(UserRegistration.this,UserDashboard.class));
-                                                            finishAffinity();
-                                                        }
-                                                        else{
-                                                            Toast.makeText(UserRegistration.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
-                                                        }
-                                                    }
-                                                });*/
                                                 Toast.makeText(UserRegistration.this, "Registered Successfully", Toast.LENGTH_LONG).show();
                                                 startActivity(new Intent(UserRegistration.this,UserDashboard.class));
                                                 finishAffinity();
@@ -104,6 +92,16 @@ public class UserRegistration extends AppCompatActivity {
                                             }
                                         }
                                     });
+
+                                    Map<String,Object> userData = new HashMap<>();
+                                    userData.put("email", user_email);
+                                    userData.put("name",user_name);
+                                    userData.put("phone",user_phone);
+                                    userData.put("role",1);
+                                    db.collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid()).set(userData);
+
+
+
                                 }
                                 else{
                                     Toast.makeText(UserRegistration.this, "Failed!", Toast.LENGTH_LONG).show();
